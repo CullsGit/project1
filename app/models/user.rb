@@ -1,5 +1,6 @@
 class User < ApplicationRecord
+  has_secure_password
   has_many :posts
   has_many :comments
-  has_many :subjects, :through => :posts 
+  has_many :subjects, :through => :posts
 end
