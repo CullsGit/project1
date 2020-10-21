@@ -1,6 +1,6 @@
 User.destroy_all
-u1 = User.create :name => 'Cull', :email => 'hugo.cullinan@hotmail.com'
-u2 = User.create :name => 'Chump', :email => 'chump@ga.co'
+u1 = User.create :name => 'Cull', :email => 'hugo.cullinan@hotmail.com', :password => 'chicken'
+u2 = User.create :name => 'Chump', :email => 'chump@ga.co', :password => 'chicken'
 puts "#{ User.count } users."
 
 Post.destroy_all
@@ -61,4 +61,4 @@ s6.posts << p8
 
 puts "User and comments"
 u1.comments << c2 << c3 << c8
-u2.comments << c1 << c4 << c5 << c6 << c7  
+u2.comments << c1 << c4 << c5 << c6 << c7

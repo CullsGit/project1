@@ -1,0 +1,9 @@
+<h1><%= @subject.name %></h1>
+
+<% @subject.posts.each do |post| %>
+
+  <h2><%= link_to post.title, post %></h2>
+  <p><%= post.body %></p>
+  <p>Posted by: <%= link_to post.user.name, post.user %> | <%= post.created_at.strftime '%A, %B %e, %Y' %></p>
+
+<% end %>

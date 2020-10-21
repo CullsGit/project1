@@ -1,0 +1,9 @@
+<h1>Welcome to <%= @user.name %>'s profile page</h1>
+
+<% @user.posts.each do |post| %>
+  <p><strong><%= post.subject.name %></strong></p>
+  <h2><%= link_to post.title, post %></h2>
+  <p><%= post.body %></p>
+
+
+<% end %>

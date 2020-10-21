@@ -1,0 +1,17 @@
+<h1>Interesting</h1>
+
+<% @subjects.each do |subject| %>
+
+  <p style="display:inline">|<%= link_to subject.name, posts_path(:sub => subject.id) %>|</p>
+
+<% end %>
+
+
+<% @posts.each do |post| %>
+  <h3><%=link_to post.subject.name, post.subject %></h3>
+  <ul>
+    <li><%= link_to post.title, post %></li>
+    <li><%= post.body %></li>
+    <li>Posted by: <%= link_to post.user.name, post.user %> | <%= post.created_at.strftime '%A, %B %e, %Y' %></li>
+  </ul>
+<% end %>
