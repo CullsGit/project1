@@ -8,7 +8,7 @@ class PostsController < ApplicationController
       @posts = Post.where(:subject_id => sub)
     else
       @posts = Post.all
-    end 
+    end
 
   end
 
@@ -36,6 +36,12 @@ class PostsController < ApplicationController
 
     post.destroy
     redirect_to posts_path
+  end
+
+  def like
+    @post = Post.all.find(params[:id])
+    Like.create(user_id: @current_user.id, post_id: @post.id)
+    redirect_to @post
   end
 
   private

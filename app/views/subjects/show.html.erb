@@ -1,9 +1,11 @@
-<h1><%= @subject.name %></h1>
+<body class="<%= @subject.name[0..1] %>">
 
+<p id="heading"><a href=<%= root_path %>><%= @subject.name %></a></p>
 <% @subject.posts.each do |post| %>
-
-  <h2><%= link_to post.title, post %></h2>
+<div class= "<%= post.subject.name[0..2] %> post">
+  <h3 class="post_title"><%= link_to post.title, post %></h3>
   <p><%= post.body %></p>
   <p>Posted by: <%= link_to post.user.name, post.user %> | <%= post.created_at.strftime '%A, %B %e, %Y' %></p>
-
+</div>
 <% end %>
+</body>

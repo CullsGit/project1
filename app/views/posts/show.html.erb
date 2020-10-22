@@ -1,3 +1,4 @@
+<div class= "<%= @post.subject.name[0..2] %> show_post">
 <h2><%= @post.title %></h2>
 
   <h3><%= link_to @post.subject.name, @post.subject %></h3>
@@ -9,29 +10,36 @@
 
   <% if @current_user.present? %>
     <% if @current_user.id == @post.user_id %>
-      <%= button_to "Remove Post", @post, :method => 'delete', :data => {:confirm => 'Are you sure?' } %>
+      <%= button_to "Remove Post", @post, :method => 'delete', :class => 'btn', :data => {:confirm => 'Are you sure?' } %>
     <% end %>
-    <h2><%= @post.comments.count %> Comments</h2>
+
+    <h2 style="display:inline">Comments: <%= @post.comments.count %> </h2>
+    <h2 style="display:inline">Interested: <%= @post.likes.count %></h2>
     <% @post.comments.each do |comment| %>
       <p>
         <strong><%= comment.user.name %>:</strong>
         <%= comment.body %>
       </p>
     <% if @current_user.id == comment.user_id %>
-      <%= button_to "Remove Comment", [comment.post, comment], :method => 'delete', :data => {:confirm => 'Are you sure?' } %>
+      <%= button_to "Remove Comment", [comment.post, comment], :class => 'btn', :method => 'delete', :data => {:confirm => 'Are you sure?' } %>
     <% end %>
   <% end %>
 
   <h2>Add a comment:</h2>
   <%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
     <p>
-      <%= form.label :body %><br>
-      <%= form.text_area :body %>
+      <%= form.text_area :body, :class => 'text_area' %>
     </p>
     <p>
-      <%= form.submit %>
+      <%= form.submit%>
     </p>
   <% end %>
 
+  <% if @post.liked?(@current_user) %>
+    <%= button_to "Interesting!", like_path(@post), :class => 'btn', method: "put", disabled: true %>
+  <% else %>
+    <%= button_to "Interesting!", like_path(@post), :class => 'btn', method: "put" %>
+  <% end %>
 
   <% end %>
+  </div>

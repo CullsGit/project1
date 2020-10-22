@@ -38,11 +38,13 @@ c7 = Comment.create :body => 'Hahaha you\'re kidding.'
 c8 = Comment.create :body => 'Omg'
 puts "#{ Comment.count } comments."
 
+
+
 puts "User and posts"
 u1.posts << p1 << p2 << p4 << p6 << p7 << p9 << p10 << p11
 u2.posts << p3 << p5 << p8 << p12
 
-puts "Post and comments"
+puts "Post and comments/likes"
 p1.comments << c1
 p3.comments << c2
 p4.comments << c4 << c5
@@ -50,6 +52,8 @@ p5.comments << c3
 p7.comments << c6
 p11.comments << c7
 p12.comments << c8
+
+
 
 puts "Subject and posts"
 s1.posts << p6 << p7

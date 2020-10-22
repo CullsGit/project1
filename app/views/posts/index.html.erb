@@ -1,17 +1,27 @@
-<h1>Interesting</h1>
+<p id="heading"><a href=<%= root_path %>>Interesting</a></p>
 
+<div class="sidenav">
 <% @subjects.each do |subject| %>
-
-  <p style="display:inline">|<%= link_to subject.name, posts_path(:sub => subject.id) %>|</p>
-
+      <p class="<%= subject.name[0..2] %>"</p><%= link_to subject.name, posts_path(:sub => subject.id) %>
 <% end %>
+</div>
 
 
 <% @posts.each do |post| %>
-  <h3><%=link_to post.subject.name, post.subject %></h3>
-  <ul>
-    <li><%= link_to post.title, post %></li>
-    <li><%= post.body %></li>
-    <li>Posted by: <%= link_to post.user.name, post.user %> | <%= post.created_at.strftime '%A, %B %e, %Y' %></li>
-  </ul>
+
+<div class= "<%= post.subject.name[0..2] %> post">
+    <h3 class="subject_title"><%=link_to post.subject.name, post.subject %>:</h3>
+    <h3 class="post_title"><%= link_to post.title, post %></h3>
+
+    <p><%= post.body %></p>
+
+    <div class="post_info">
+      <div class="like_comment">
+        <p style="display:inline">Comments: <%= post.comments.count %> </p>
+        <p style="display:inline">Interested: <%= post.likes.count %></p>
+      </div>
+      <p style="display:inline">Posted by: <%= link_to post.user.name, post.user %> | <%= post.created_at.strftime '%A, %B %e, %Y' %></p>
+    </div>
+</div>
+
 <% end %>

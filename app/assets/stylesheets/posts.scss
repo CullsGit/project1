@@ -1,3 +1,190 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #F5F5F5;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2vw;
+  font-size: 2.5vh;
+}
+#heading {
+  text-align: center;
+  font-size: 5em;
+  margin: 20px 0 20px 0;
+}
+#heading a {
+  text-decoration: none;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+#heading:nth-child(1) a {
+  color: #fff;
+  font-family: Monoton;
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate;
+}
+@-webkit-keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177;
+  }
+}
+.mynav {
+  position: fixed;
+  top: 5vw;
+  right: 30px;
+  z-index: 1;
+  width: 10vw;
+  background-color: white;
+  border-radius: 1.5rem;
+  text-align: center;
+}
+.mynav p {
+  background-color: #ff6961;
+}
+.mynav a {
+  font-size: 3vh;
+  text-decoration: none;
+  padding: 8px;
+  width: 10vh;
+  font-family: 'Staatliches', cursive;
+  border-radius: 1.5rem;
+
+}
+.mynav :hover {
+  transform: scale(1.4);
+  transition: .5s;
+}
+h1,h2,h3 {
+  font-family: 'Staatliches', cursive;
+}
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.sidenav :hover {
+  transform: scale(1.4);
+  transition: .5s;
+}
+.sidenav {
+
+  position: fixed;
+  top: 5vw;
+  left: 30px;
+  z-index: 1;
+  width: 10vw;
+  background-color: white;
+  border-radius: 1.5rem;
+  text-align: center;
+  @media (max-width: 600px) {
+    visibility: collapse;
+  }
+}
+
+.sidenav a {
+  font-size: 3vh;
+  text-decoration: none;
+  padding: 8px;
+  width: 10vh;
+  font-family: 'Staatliches', cursive;
+  border-radius: 1.5rem;
+}
+.show_post {
+  border-radius: 4em;
+  border: 5px solid black;
+  padding: 5px 30px;
+  margin: 20px 0px;
+  box-shadow: 10px 10px 10px 2px rgba(21,29,43,1);
+  padding-bottom: 20px;
+}
+.post {
+  border-radius: 4em;
+  border: 5px solid black;
+  // font-size: 1.2rem;
+  padding: 5px 30px;
+  margin: 20px 0px;
+  transition: all .5s;
+  box-shadow: 10px 10px 10px 2px rgba(21,29,43,1);
+  padding-bottom: 20px;
+}
+.login {
+  width: 100%;
+  text-align: center;
+  background-color: #FFBEBC;
+}
+.login input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box
+}
+.post:hover {
+  color: white;
+  box-shadow: 0 0 50px #d35400;
+  text-shadow: 0 0 15px #d35400;
+  transform: scale(1.05);
+}
+.post_title {
+  display: inline-block;
+}
+
+.subject_title {
+  display: inline-block;
+}
+.subject_title a {
+  text-decoration: none;
+  font-size: 1.5em;
+  color: white;
+}
+.post_title a {
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+
+.post_info {
+  font-size: 1vw;
+  text-align: right;
+  text-decoration: none;
+}
+.like_comment {
+  text-align: left;
+}
+.Geo {
+  background-color: #85E3FF;
+}
+.Ent {
+  background-color: #FF9CEE;
+}
+.His {
+  background-color: #ffee87;
+}
+.Art {
+  background-color: #C5A3FF;
+}
+.Sci {
+  background-color: #87fa94;
+}
+.Spo {
+  background-color: #fa8884;
+}
+
+.btn {
+  border-radius: 4px;
+  padding: 12px 28px;
+  font-size: 12px;
+  display: inline-block;
+}
+.text_area {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  height: 15vh;
+}

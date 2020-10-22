@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :subjects, :only => [:show]
+
+
+  put '/post/:id/like', to: 'posts#like', as: 'like'
 end

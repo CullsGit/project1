@@ -1,9 +1,17 @@
 <h1>Welcome to <%= @user.name %>'s profile page</h1>
 
 <% @user.posts.each do |post| %>
-  <p><strong><%= post.subject.name %></strong></p>
-  <h2><%= link_to post.title, post %></h2>
+  <div class= "<%= post.subject.name[0..2] %> post">
+  <h3 class="post_title"><%= link_to post.title, post %></h3>
+  <h3 class="subject_title"><%=link_to post.subject.name, post.subject %></h3>
   <p><%= post.body %></p>
-
+  <div class="post_info">
+    <div class="like_comment">
+      <p style="display:inline">Comments: <%= post.comments.count %> </p>
+      <p style="display:inline">Interested: <%= post.likes.count %></p>
+    </div>
+    <p style="display:inline"><%= post.created_at.strftime '%A, %B %e, %Y' %></p>
+  </div>
+</div>
 
 <% end %>

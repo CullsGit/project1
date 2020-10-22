@@ -1,3 +1,5 @@
+<body class="show_post login">
+
 <h1>Sign Up</h1>
 
 <% if @user.errors.any? %>
@@ -19,3 +21,4 @@
   <%= f.password_field :password_confirmation %>
   <%= f.submit "Welcome!" %>
 <% end %>
+</body>
