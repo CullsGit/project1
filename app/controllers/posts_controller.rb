@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     if !sub.nil?
       @posts = Post.where(:subject_id => sub)
     else
-      @posts = Post.all
+      @posts = Post.order(created_at: :desc)
     end
 
   end

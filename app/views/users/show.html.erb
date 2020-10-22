@@ -1,5 +1,6 @@
 <h1>Welcome to <%= @user.name %>'s profile page</h1>
 
+
 <% @user.posts.each do |post| %>
   <div class= "<%= post.subject.name[0..2] %> post">
   <h3 class="post_title"><%= link_to post.title, post %></h3>

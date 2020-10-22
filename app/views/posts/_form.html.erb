@@ -1,15 +1,19 @@
+<body class="show_post login">
+
+
 <%= form_for @post do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title, :required => true, :autofocus => true %>
 
   <%= f.label :body %>
-  <%= f.text_area :body %>
+  <%= f.text_area :body, :class => 'new_post' %>
 
   <%= f.label :subject_id%>
   <%= f.select :subject_id, Subject.pluck(:name, :id) %>
 
   <h3>Posted by: <%= f.label :user_id, @current_user[:name]%></h3>
-  
+
 
   <%= f.submit "Post" %>
 <% end %>
+</body>
